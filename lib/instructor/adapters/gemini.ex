@@ -74,6 +74,9 @@ defmodule Instructor.Adapters.Gemini do
 
               %{type: "video_url", video_url: %{url: url, mime_type: mime_type}} ->
                 %{file_data: %{mime_type: mime_type, file_uri: url}}
+
+              %{type: "inline_data", inline_data: %{mime_type: mime_type, data: data}} ->
+                %{inline_data: %{mime_type: mime_type, data: data}}
             end)
 
           {system_instructions, [%{role: "user", parts: parts} | history]}
